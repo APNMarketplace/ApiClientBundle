@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="apnmarketplace.api_client.class">ApnMarketplace\ApiClient\App</parameter>
+        <parameter key="apnmarketplace.guzzle_client.class">ApnMarketplace\ApiClient\Client\Guzzle\Client</parameter>
+        <parameter key="apnmarketplace.guzzle_client_plugin.class">ApnMarketplace\ApiClient\Client\Guzzle\ApnMarketplacePlugin</parameter>
+        <parameter key="apnmarketplace.guzzle_session.class">ApnMarketplace\ApiClient\Client\Guzzle\Session</parameter>
+    </parameters>
+
+    <services>
+        <!-- app -->
+        <service id="apnmarketplace.api_client" class="%apnmarketplace.api_client.class%">
+            <argument />
+        </service>
+
+        <!-- client -->
+        <service id="apnmarketplace.guzzle_client" class="%apnmarketplace.guzzle_client.class%">
+            <call method="setSslVerification">
+                <argument>%apnmarketplace.guzzle_verify_ssl%</argument>
+            </call>
+            <call method="addSubscriber">
+                <argument type="service" id="apnmarketplace.guzzle_client_plugin" />
+            </call>
+        </service>
+
+        <!-- api plugin -->
+        <service id="apnmarketplace.guzzle_client_plugin" class="%apnmarketplace.guzzle_client_plugin.class%">
+            <argument>%apnmarketplace.client_id%</argument>
+            <argument>%apnmarketplace.client_secret%</argument>
+            <argument type="service" id="apnmarketplace.guzzle_session" />
+        </service>
+
+        <!-- cache plugin -->
+        <service id="apnmarketplace.guzzle_cache_plugin" class="Guzzle\Plugin\Cache\CachePlugin">
+            <argument type="service" id="apnmarketplace.guzzle_cache_adapter"></argument>
+        </service>
+
+        <!-- cache plugin adapter -->
+        <service id="apnmarketplace.guzzle_cache_adapter" class="Guzzle\Cache\DoctrineCacheAdapter">
+            <argument type="service" id="doctrine_memcache"></argument>
+        </service>
+
+        <!-- session -->
+        <service id="apnmarketplace.guzzle_session" class="%apnmarketplace.guzzle_session.class%"></service>
+    </services>
+</container>
