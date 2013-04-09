@@ -29,7 +29,7 @@ Symfony 2 Bundle wrapping [ApnMarketplace/ApiClient](https://github.com/APNMarke
                     "type": "vcs",
                     "url": "git@github.com:APNMarketplace/ApiClientBundle.git"
                 }
-            }
+            ]
         }
 
 3. Install your dependencies using [composer](http://getcomposer.org):
