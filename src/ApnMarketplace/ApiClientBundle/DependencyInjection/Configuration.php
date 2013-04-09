@@ -24,6 +24,7 @@ class Configuration implements ConfigurationInterface
             ->scalarNode('id')->defaultValue('')->end()
             ->scalarNode('secret')->defaultValue('')->end()
             ->scalarNode('client')->defaultValue('apnmarketplace.guzzle_client')->end()
+            ->scalarNode('host')->defaultValue('https://api.apnmarketplace.co.nz')->end()
             ->booleanNode('guzzle_verify_ssl')->defaultTrue()->end()
             ->booleanNode('guzzle_caching')->defaultTrue()->end()
         ->end();

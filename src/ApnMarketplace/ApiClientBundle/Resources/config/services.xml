@@ -15,6 +15,7 @@
         <!-- app -->
         <service id="apnmarketplace.api_client" class="%apnmarketplace.api_client.class%">
             <argument />
+            <argument>%apnmarketplace.host%</argument>
         </service>
 
         <!-- client -->
