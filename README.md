@@ -53,6 +53,8 @@ Symfony 2 Bundle wrapping [ApnMarketplace/ApiClient](https://github.com/APNMarke
         apn_marketplace_api_client:
             id: client_id
             secret: client_secret
+            # compatibility date
+            accept_datetime: Fri, 12 Apr 2013 09:40:29 +1200
             # any client implementing the interface may be used, default based on Guzzle is supplied
             client: apnmarketplace.guzzle_client
             # prevent curl validating self signed certificates when developing

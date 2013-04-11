@@ -20,6 +20,7 @@ class ExtensionTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEmpty($this->container->getParameter('apnmarketplace.client_id'));
         $this->assertEmpty($this->container->getParameter('apnmarketplace.client_secret'));
+        $this->assertEmpty($this->container->getParameter('apnmarketplace.accept_datetime'));
         $this->assertEquals('https://api.apnmarketplace.co.nz', $this->container->getParameter('apnmarketplace.host'));
         $this->assertTrue($this->container->getParameter('apnmarketplace.guzzle_verify_ssl'));
         $listeners = array();
@@ -35,6 +36,7 @@ class ExtensionTest extends \PHPUnit_Framework_TestCase
         $config = array(
             'id'                => '1',
             'secret'            => 'secret',
+            'accept_datetime'   => 'Tue, 16 Oct 2012 12:00:00 +1200',
             'host'              => 'https://example.com',
             'guzzle_verify_ssl' => false,
             'guzzle_caching'    => false,
@@ -43,6 +45,7 @@ class ExtensionTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals('1', $this->container->getParameter('apnmarketplace.client_id'));
         $this->assertEquals('secret', $this->container->getParameter('apnmarketplace.client_secret'));
+        $this->assertEquals('Tue, 16 Oct 2012 12:00:00 +1200', $this->container->getParameter('apnmarketplace.accept_datetime'));
         $this->assertEquals('https://example.com', $this->container->getParameter('apnmarketplace.host'));
         $this->assertFalse($this->container->getParameter('apnmarketplace.guzzle_verify_ssl'));
         $listeners = array();
