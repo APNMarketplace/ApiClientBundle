@@ -32,6 +32,7 @@
         <service id="apnmarketplace.guzzle_client_plugin" class="%apnmarketplace.guzzle_client_plugin.class%">
             <argument>%apnmarketplace.client_id%</argument>
             <argument>%apnmarketplace.client_secret%</argument>
+            <argument>%apnmarketplace.accept_datetime%</argument>
             <argument type="service" id="apnmarketplace.guzzle_session" />
         </service>
 

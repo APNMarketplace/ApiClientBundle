@@ -28,6 +28,7 @@ class ApnMarketplaceApiClientExtension extends Extension
 
         $container->setParameter('apnmarketplace.client_id', $config['id']);
         $container->setParameter('apnmarketplace.client_secret', $config['secret']);
+        $container->setParameter('apnmarketplace.accept_datetime', $config['accept_datetime']);
         $container->setParameter('apnmarketplace.host', $config['host']);
         $container->setParameter('apnmarketplace.guzzle_verify_ssl', $config['guzzle_verify_ssl']);
         $container->getDefinition('apnmarketplace.api_client')->replaceArgument(0, new Reference($config['client']));
