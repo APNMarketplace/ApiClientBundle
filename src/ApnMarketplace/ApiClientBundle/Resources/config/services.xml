@@ -8,7 +8,7 @@
         <parameter key="apnmarketplace.api_client.class">ApnMarketplace\ApiClient\App</parameter>
         <parameter key="apnmarketplace.guzzle_client.class">ApnMarketplace\ApiClient\Client\Guzzle\Client</parameter>
         <parameter key="apnmarketplace.guzzle_client_plugin.class">ApnMarketplace\ApiClient\Client\Guzzle\ApnMarketplacePlugin</parameter>
-        <parameter key="apnmarketplace.guzzle_session.class">ApnMarketplace\ApiClient\Client\Guzzle\Session</parameter>
+        <parameter key="apnmarketplace.guzzle_session.class">ApnMarketplace\ApiClientBundle\Session</parameter>
     </parameters>
 
     <services>
